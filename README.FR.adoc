@@ -1,0 +1,226 @@
+//////////////////////////////////////////
+
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+//////////////////////////////////////////
+
+= Apache Groovy
+:revdate: 04-12-2019
+:build-icon: http://ci.groovy-lang.org:8111/app/rest/builds/buildType:(id:Groovy_Jdk7Build)/statusIcon
+:travis-build-icon: https://travis-ci.org/apache/groovy.svg?branch=master
+:noheader:
+:groovy-www: https://groovy-lang.org/
+:groovy-ci: http://ci.groovy-lang.org?guest=1
+:travis-ci: https://travis-ci.org/apache/groovy
+:jdk: https://www.oracle.com/technetwork/java/javase/downloads
+:bintray-latest-version-image: https://api.bintray.com/packages/groovy/maven/groovy/images/download.png
+:bintray-latest-version-link: https://bintray.com/groovy/maven/groovy/_latestVersion
+:bintray-watch-image: https://www.bintray.com/docs/images/bintray_badge_color.png
+:bintray-watch-link: https://bintray.com/groovy/maven/groovy/view?source=watch
+:apache-license-icon: https://img.shields.io/badge/license-APL2-blue.svg
+:apache-license-link: http://www.apache.org/licenses/LICENSE-2.0.txt
+:apache-groovy-twitter-icon: https://img.shields.io/twitter/follow/ApacheGroovy.svg?style=social
+:apache-groovy-twitter-link: https://twitter.com/intent/follow?screen_name=ApacheGroovy
+:jdk-icon: https://img.shields.io/badge/java-8+-4c7e9f.svg
+:bintray-download-icon: https://api.bintray.com/packages/groovy/maven/groovy/images/download.svg
+:opencollective-link: https://opencollective.com/friends-of-groovy
+:sponsors-silver-img: https://opencollective.com/friends-of-groovy/tiers/silver-sponsor.svg?avatarHeight=45&width=890
+:sponsors-bronze-img: https://opencollective.com/friends-of-groovy/tiers/bronze-sponsor.svg?avatarHeight=40&width=890
+:backers-monthly-img: https://opencollective.com/friends-of-groovy/tiers/backer.svg?avatarHeight=36&width=890
+:backers-all-img: https://opencollective.com/friends-of-groovy/backers.svg?avatarHeight=32&width=890
+
+[.left.text-left]
+image::https://raw.githubusercontent.com/groovy/artwork/master/medium.png[]
+image:{jdk-icon}[jdk, link={jdk}]
+image:{apache-license-icon}[Apache License 2, link={apache-license-link}]
+// image:{build-icon}[teamcity build status, link={groovy-ci}]
+image:{travis-build-icon}[travis build status, link={travis-ci}]
+image:{bintray-download-icon}[bintray download, link={bintray-latest-version-link}]
+image:{apache-groovy-twitter-icon}[follow on Twitter, link={apache-groovy-twitter-link}]
+
+{groovy-www}[Groovy] est un puissant langage de programmation à multiples facettes pour la plate-forme JVM.
+Il prend en charge un large éventail de styles de programmation incorporant des fonctionnalités issues de langages dynamiques 
+tels que l'optionnel et le duck typing, mais aussi compilation statique et vérification de type statique à des niveaux 
+similaires ou supérieurs à ceux de Java grâce à son vérificateur de type statique extensible.
+Il vise à augmenter considérablement la productivité des développeurs avec de nombreuses fonctionnalités puissantes 
+mais aussi une syntaxe concise, familière et facile à apprendre.
+
+Il s'intègre facilement à n'importe quelle classe ou bibliothèque Java, et fournit immédiatement à votre application des 
+capacités puissantes, y compris la prise en charge des scripts, la création d'un langage spécifique au domaine,
+la méta-programmation et la programmation fonctionnelle pendant l'exécution et la compilation. 
+
+
+== Téléchargement
+
+La dernière version Groovy est disponible sur Bintray image:{bintray-latest-version-image}[Bintray latest version, link={bintray-latest-version-link}]
+
+Les liens de distribution binaires sont sur la page du paquet.
+
+Les extraits de déclaration des dépendances Maven, Gradle et Ivy sont disponibles sur des fichiers spécifiques 
+d'un module particulier.
+
+image:{bintray-watch-image}[Get automatic notifications about new "groovy" versions link={bintray-watch-link}]
+
+== Obtention de la source
+
+Vous n'avez pas besoin du code source pour utiliser Apache Groovy mais si vous souhaitez explorer son fonctionnement 
+interne ou le construire vous-même, il existe deux façons d'obtenir les fichiers sources.
+
+=== Vérification à partir du contrôle de version
+
+Apache Groovy utilise Git. Le dépôt officiel de Git est à :
+
+    https://gitbox.apache.org/repos/asf/groovy.git
+
+Et un miroir est hébergé sur Github :
+
+    https://github.com/apache/groovy
+
+Le miroir Github est en lecture seule et permet aux utilisateurs et aux développeurs d'explorer le code 
+et à la communauté d'accepter des contributions via des requêtes Github pull.
+
+Il vous suffit de `git clone' le repo (ou le repo que vous avez bifurqué via le site github) et 
+vous aurez la source complète.
+
+=== Décompresser la distribution src
+
+Vous pouvez également télécharger la distribution source et la décompresser.
+
+Si vous obtenez la source à partir de la distribution source et que vous avez l'intention de compiler à partir de la source,
+vous devez également https://gradle.org/downloads/[télécharger] et installer http://gradle.org/[Gradle] 
+et l'utiliser pour exécuter une étape de bootstrap.
+
+==== Bootstrapping Gradle
+
+Comme mentionné dans le paragraphe précédent, si vous téléchargez la distribution source
+tu dois démarrer Gradle. Ce n'est pas nécessaire si vous clonez à partir du repo Github.
+
+Chaque version de Groovy est construite et testée en utilisant une version spécifique de Gradle.
+Cette version est spécifiée par la propriété `gradle_version' définie dans le fichier `gradle.properties`.
+dans le répertoire racine. Heureusement, vous ne devriez pas avoir besoin de connaître cette version et,
+après le bootstrapping, vous devez utiliser la commande `gradlew' qui vous assurera que la bonne version
+est toujours utilisée.
+
+La version de Gradle utilisée pour l'étape bootstrap a une certaine flexibilité bien qu'en général vous
+pourriez avoir besoin de télécharger une version similaire à la version de Groovy que le build attend.
+
+Pour démarrer Gradle, dans le répertoire supérieur de votre source décompressée, lancez la commande :
+
+    gradle -b wrapper.gradle wrapper
+
+Sur les systèmes de type Unix, utilisez `./gradle'.
+Si la version de Gradle que vous avez installée est proche de la version requise,
+vous pourrez peut-être vous en sortir sans le `-b wrapper.gradle.gradle' ci-dessus,
+mais en cas de doute laissez le dans.
+
+*NOTE*: A ce stade, le Gradle wrapper doit être installé et à partir de maintenant, vous devez utiliser
+la commande `gradlew' au lieu de `gradle'. (Sur les systèmes de type Unix, utilisez `./gradlew`).
+
+== Building à partir de la source
+
+// Build is image:{build-icon}[build status, link={groovy-ci}].
+
+Pour construire, vous aurez besoin de :
+
+* {jdk}[JDK 9+]
+
+Pour tout compiler avec Gradle, utilisez la commande suivante (`./gradlew' sur les systèmes de type Unix) :
+
+    gradlew clean dist
+
+Note : La commande gradlew télécharge automatiquement la bonne version de Gradle si nécessaire, vous n'avez pas besoin de la télécharger en premier.
+
+Cela générera une distribution similaire au zip que vous pouvez télécharger sur la page de téléchargement de Groovy.
+
+Pour tout construire et lancer des tests unit, utilisez :
+
+    gradlew test
+
+Si vous voulez lancer un test unit, utilisez ceci. <TestClassName> est comme `groovy.GroovyMethodsTest'.
+
+    gradlew :test --tests <TestClassName>
+
+Construire à partir de IntelliJ IDEA:
+
+    gradlew jar idea
+
+Ouvrez ensuite le projet généré dans IDEA.
+
+Construire à partir d'Eclipse :
+
+    gradlew jar eclipse
+
+Ouvrez ensuite le projet généré et les sous-projets générés dans Eclipse. Mais sachez qu'Eclipse a tendance à être plus limité dans sa capacité à reproduire une structure Gradle build. Les fichiers de projet générés peuvent contenir une dépendance circulaire qui peut ou non empêcher Eclipse de les utiliser. Cela dépend de la version d'Eclipse, qu'il s'agisse d'un problème ou non.
+
+Construire la documentation (Groovy Language Documentation) :
+
+    gradlew asciidoc
+
+Tous les exemples de code du guide de documentation sont tirés de cas de test réels. Pour exécuter un seul cas de test de documentation, prenez par exemple `src/spec/test/semantics/PowerAssertTest.groovy`.
+
+    gradlew testSinglePowerAssertTest
+
+(Notez l'omission du nom du paquet : la classe est `semantics.PowerAssertTest' mais seul `PowerAssertTest' est ajouté à `testSingle').
+
+== InvokeDynamic support
+
+Le build Groovy supporte l'instruction JVM `invokedynamic'. Si vous voulez créer Groovy avec invokedynamic, vous pouvez utiliser la propriété du projet `indy' :
+
+    gradlew -Pindy=true clean test
+
+Veuillez noter que les tâches Gradle suivantes génèrent des variantes indy et non indy des bocaux, vous n'avez donc pas besoin d'utiliser la propriété système :
+
+* dist
+* install
+* uploadArchives
+
+== Serveur d'intégration continue
+
+Le serveur officiel de CI fonctionne {groovy-ci}[ici] et est sponsorisé par http://www.jetbrains.com[JetBrains].
+
+
+== Java Profiler
+
+L'équipe de base de Groovy accorde la performance grâce à YourKit Java Profiler, qui est sponsorisé par https://www.yourkit.com[YourKit].
+
+== Friends of Groovy Open Collective
+En tant qu'initiative indépendante, nous avons créé un collectif ouvert pour Groovy :
+
+https://opencollective.com/friends-of-groovy
+
+Cette initiative est conçue pour compléter le projet Apache et les nombreuses contributions que nous recevons de notre grande communauté et de nos supporters.
+
+* Merci à nos Silver Sponsors:
+
+image:{sponsors-silver-img}[]
+
+* Merci à nos Bronze Sponsors:
+
+image:{sponsors-bronze-img}[]
+
+* Merci à nos backers (dons mensuels):
+
+image:{backers-monthly-img}[]
+
+* Merci à tous nos backers:
+
+image:{backers-all-img}[]
+
+== License
+
+Groovy est sous licence selon les termes de la http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0].
